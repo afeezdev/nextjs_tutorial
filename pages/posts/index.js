@@ -8,7 +8,7 @@ function  PostList({ posts }) {
                 posts.map(post => {
                     return(
                         <div key={post.id}>
-                            <Link href={`posts/${post.id}`} >
+                            <Link href={`posts/${post.id}`}  passHref>
                                 <h2>
                                     {post.id} {post.title}
                                 </h2>
