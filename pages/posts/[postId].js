@@ -1,4 +1,12 @@
+import { useRouter } from 'next/router'
+
 function Post({ post }) {
+    const router = useRouter()
+    
+    if(router.isFallback) {
+        return <h1>Loading...</h1>
+    }
+
     return (
         <>
             <div>
@@ -36,7 +44,7 @@ export async function getStaticPaths() {
                 params: {postId: '3'}
             }
         ],
-        fallback: false
+        fallback: true
     }
 }
 
@@ -44,6 +52,14 @@ export async function getStaticProps(context) {
     const { params } = context
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
     const data = await response.json()
+    
+    if(!data.id) {
+        return{
+            notFound: true
+        }
+    }
+    console.log(`Generating page for /posts${params.postId}`)
+    
     return {
         props: {
             post: data
