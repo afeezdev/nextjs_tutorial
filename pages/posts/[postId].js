@@ -50,7 +50,6 @@ export async function getStaticProps(context) {
             notFound: true
         }
     }
-    console.log(`Generating page for /posts${params.postId}`)
     
     return {
         props: {
