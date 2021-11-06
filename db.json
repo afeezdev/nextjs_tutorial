@@ -2,9 +2,9 @@
     
     "dashboard": {
         "posts": 5,
-        "likes": 100,
-        "followers": 20,
-        "following": 50
+        "likes": 300,
+        "followers": 200,
+        "following": 500
     },
 
     "news": [
